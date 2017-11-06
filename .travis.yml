@@ -3,7 +3,7 @@ sudo: false
 language: node_js
 
 node_js:
-  - "8.5"
+  - 8
 
 env:
   matrix:
@@ -13,6 +13,13 @@ env:
     - TEST_TYPE=test:es
     - TEST_TYPE=test:dom
     - TEST_TYPE=test:node
+    - REACT=15
+    - REACT=16
+
+matrix:
+  fast_finish: true
+  exclude:
+    - env: REACT=15 TEST_TYPE=lint
 
 script:
   - |
